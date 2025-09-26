@@ -1,12 +1,12 @@
 ---
-title: Mengen, Kosten & LCA - Übersicht
-description: Übersicht der drei NHMzh-Plugins für Mengenermittlung, Kostenberechnung und Ökobilanzierung
+title: Übersicht
+description: Überblick über die Plugins Kosten, LCA und Mengenermittlung
 sidebar_position: 1
 ---
 
-# Mengen, Kosten & LCA - Plugin-Suite
+# Mengen-, Kosten und LCA-Plugins
 
-Diese Plugin-Suite umfasst drei integrierte Module für das Nachhaltigkeitsmonitoring der Stadt Zürich (NHMzh).
+Diese Plugin-Suite umfasst drei integrierte Module für das NHMzh Nachhaltigkeitsmonitoring der Stadt Zürich.
 
 ## 🤝 Förderung & Urheberschaft
 
@@ -15,34 +15,36 @@ Diese Plugin-Suite umfasst drei integrierte Module für das Nachhaltigkeitsmonit
 
 ## 📊 Plugin-Übersicht
 
-### [QTO Plugin - Mengenermittlung](./qto/intro)
+### [NHMzh Mengenermittlung](./qto/intro)
 Extraktion von Mengen, Materialien und Eigenschaften aus IFC-Modellen.
 - **Frontend**: React/TypeScript (Vite)
 - **Backend**: Python/FastAPI mit IfcOpenShell
+- **Quellcode**: [github.com/LTplus-AG/NHMzh-plugin-qto](https://github.com/LTplus-AG/NHMzh-plugin-qto)
 
-### [Cost Plugin - Kostenberechnung](./cost/intro)
+### [NHMzh Kostenberechnung](./cost/intro)
 Anwendung von Kostenkennwerten auf ermittelte Mengen.
 - **Frontend**: React/TypeScript (Vite)
 - **Backend**: Node.js/Express (TypeScript)
+- **Quellcode**: [github.com/LTplus-AG/NHMzh-plugin-cost](https://github.com/LTplus-AG/NHMzh-plugin-cost)
 
-### [LCA Plugin - Ökobilanzierung](./lca/intro)
+### [NHMzh Ökobilanzierung](./lca/intro)
 Berechnung von Umweltauswirkungen basierend auf KBOB-Daten.
 - **Frontend**: React/TypeScript (Vite)
 - **Backend**: Node.js/Express (TypeScript)
+- **Quellcode**: [github.com/LTplus-AG/NHMzh-plugin-lca](https://github.com/LTplus-AG/NHMzh-plugin-lca)
 
 ## 📚 Gemeinsame Referenzen
 
-- [REST API Dokumentation](./shared/api-documentation)
 - [IFC-Modellierungsrichtlinien](./shared/ifc-guidelines)
 - [Systemarchitektur](./shared/architecture)
 
 ## 🔄 Datenfluss
 
 ```
-IFC-Modell → QTO Plugin → Cost Plugin → LCA Plugin → Dashboard
+IFC-Modell → Mengen-Plugin → Kosten-Plugin → LCA-Plugin → Dashboard
 ```
 
-1. **QTO**: Extrahiert Mengen und Materialien aus IFC
-2. **Cost**: Berechnet Kosten basierend auf QTO-Daten
-3. **LCA**: Berechnet Umweltauswirkungen basierend auf QTO-Materialien
+1. **NHMzh Mengenermittlung**: Extrahiert Mengen und Materialien aus IFC
+2. **NHMzh Kostenberechnung**: Berechnet Kosten basierend auf QTO-Daten
+3. **NHMzh Ökobilanzierung**: Berechnet Umweltauswirkungen basierend auf QTO-Materialien
 4. **Integration**: Alle Module teilen sich MongoDB-Datenbanken

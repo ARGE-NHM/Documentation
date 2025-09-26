@@ -1,11 +1,11 @@
 ---
-title: Dashboard - Übersicht
-description: Dashboard für die Visualisierung der NHMzh-Ergebnisse
+title: NHMzh Dashboard Übersicht
+description: Dashboard im NHMzh Nachhaltigkeitsmonitoring
 sidebar_position: 1
 ---
 
-# Dashboard
+# NHMzh Dashboard Übersicht
 
-*Dokumentation folgt - wird vom Dashboard-Team bereitgestellt.*
+*Dokumentation folgt - wird vom Yskert bereitgestellt.*
 
-Dieses Dashboard visualisiert die aggregierten Ergebnisse aus den Mengen-, Kosten- und LCA-Berechnungen.
+Das Dashboard visualisiert die aggregierten Ergebnisse aus den Mengen-, Kosten- und LCA-Berechnungen.

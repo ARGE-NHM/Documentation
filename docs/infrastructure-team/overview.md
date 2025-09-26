@@ -1,12 +1,12 @@
 ---
-title: Infrastructure & Core Plugins - Übersicht
-description: IFC Uploader, Projekt Manager und Plugin Manager
+title: NHMzh Infrastructure & Core Übersicht
+description: Infrastrukturmodule im NHMzh Nachhaltigkeitsmonitoring
 sidebar_position: 1
 ---
 
-# Infrastructure & Core Plugins
+# NHMzh Infrastructure & Core Übersicht
 
-*Dokumentation folgt - wird vom Infrastructure-Team bereitgestellt.*
+*Dokumentation folgt - wird von ekkodale bereitgestellt.*
 
 ## Core Infrastructure
 

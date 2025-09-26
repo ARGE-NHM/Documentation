@@ -1,17 +1,18 @@
 ---
-title: NHMzh LCA Plugin
-description: Dokumentation des LCA Plugins
+title: NHMzh Ökobilanzierung
+sidebar_label: Ökobilanzierung
+description: LCA Modul im NHMzh Nachhaltigkeitsmonitoring
 sidebar_position: 1
 ---
-# 🌱 NHMzh Plugin-LCA: Ökobilanzierung (Life Cycle Assessment)
+# 🌱 NHMzh Ökobilanzierung
 
-[![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg?style=for-the-badge)](https://www.gnu.org/licenses/agpl-3.0)
 [![React](https://img.shields.io/badge/React-18.3-61DAFB.svg?style=for-the-badge&logo=react)](https://reactjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.7-3178C6.svg?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
 [![Vite](https://img.shields.io/badge/Vite-5.0-646CFF.svg?style=for-the-badge&logo=vite)](https://vitejs.dev/)
 [![Node.js](https://img.shields.io/badge/Node.js-18.x-339933.svg?style=for-the-badge&logo=node.js)](https://nodejs.org/)
+[![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg?style=for-the-badge)](https://www.gnu.org/licenses/agpl-3.0)
 
-Modul zur Ökobilanzierung (LCA) im Nachhaltigkeitsmonitoring der Stadt Zürich (NHMzh).
+Modul zur Ökobilanzierung (LCA) im NHMzh Nachhaltigkeitsmonitoring der Stadt Zürich (NHMzh).
 
 
 ### 🏛️ Architektur und Kontext

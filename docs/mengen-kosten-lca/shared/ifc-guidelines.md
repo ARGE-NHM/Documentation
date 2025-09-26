@@ -1,15 +1,16 @@
 ---
-title: IFC-Modellierungsrichtlinien
-description: Leitfaden zur Modellierung für das NHMzh-System
+title: NHMzh IFC-Modellierungsrichtlinien
+sidebar_label: IFC-Modellierungsrichtlinien
+description: Leitfaden zur Modellierung für das NHMzh Nachhaltigkeitsmonitoring
 ---
 
-# IFC-Modellierungsrichtlinien für das Nachhaltigkeitsmonitoring Zürich (NHMzh)
+# NHMzh IFC-Modellierungsrichtlinien
 ## Leitfaden für Modellautoren zur optimalen IFC-Erstellung
 
 
 ### 1. Übersicht
 
-Das Nachhaltigkeitsmonitoring der Stadt Zürich (NHMzh) analysiert IFC-Modelle automatisch zur Berechnung von Mengen, Kosten und Umweltauswirkungen. Für eine erfolgreiche Auswertung müssen IFC-Dateien bestimmte Qualitätsstandards erfüllen.
+Das NHMzh Nachhaltigkeitsmonitoring der Stadt Zürich analysiert IFC-Modelle automatisch zur Berechnung von Mengen, Kosten und Umweltauswirkungen. Für eine erfolgreiche Auswertung müssen IFC-Dateien bestimmte Qualitätsstandards erfüllen.
 
 **Ziel dieses Leitfadens:**
 - Vollständige Mengenermittlung aus IFC-Modellen

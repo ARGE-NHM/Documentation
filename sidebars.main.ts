@@ -2,18 +2,16 @@ import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
 
 const sidebars: SidebarsConfig = {
   tutorialSidebar: [
-    'overview',
     {
       type: 'category',
       label: 'Mengen, Kosten & LCA',
       items: [
         {
           type: 'category',
-          label: 'Übersicht',
+          label: 'Generelles',
           items: [
             'mengen-kosten-lca/overview',
-            'mengen-kosten-lca/shared/api-documentation', 
-            'mengen-kosten-lca/shared/ifc-guidelines', 
+            'mengen-kosten-lca/shared/ifc-guidelines',
             'mengen-kosten-lca/shared/architecture',
           ],
         },

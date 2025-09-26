@@ -1,14 +1,15 @@
 ---
 title: NHMzh Systemarchitektur
-description: Übersicht der Architektur und Berechnungslogik des Nachhaltigkeitsmonitorings
+sidebar_label: Systemarchitektur
+description: Architektur und Berechnungslogik des NHMzh Nachhaltigkeitsmonitorings
 ---
 
-# Nachhaltigkeitsmonitoring der Stadt Zürich (NHMzh)
+# NHMzh Nachhaltigkeitsmonitoring
 ## Systemarchitektur und Berechnungslogik
 
 ### Management Summary
 
-Das Nachhaltigkeitsmonitoring der Stadt Zürich (NHMzh) ist ein integriertes System zur automatisierten Bewertung der Nachhaltigkeit von Bauprojekten anhand von IFC (Industry Foundation Classes). Das System kombiniert Building Information Modeling (BIM) mit Kostenschätzung und Ökobilanzierung der Erstellung (LCA).
+Das NHMzh Nachhaltigkeitsmonitoring der Stadt Zürich ist ein integriertes System zur automatisierten Bewertung der Nachhaltigkeit von Bauprojekten anhand von IFC (Industry Foundation Classes). Das System kombiniert Building Information Modeling (BIM) mit Kostenschätzung und Ökobilanzierung der Erstellung (LCA).
 
 ### 1. Systemarchitektur und Datenfluss
 

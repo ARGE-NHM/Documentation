@@ -1,10 +1,11 @@
 ---
-title: NHMzh Cost Plugin
-description: Dokumentation des Cost Plugins
+title: NHMzh Kostenberechnung
+sidebar_label: Kostenberechnung
+description: Kostenmodul im NHMzh Nachhaltigkeitsmonitoring
 sidebar_position: 1
 ---
 
-# 💰 NHMzh Plugin-Cost: Kostenberechnung
+# 💰 NHMzh Kostenberechnung
 
 [![React](https://img.shields.io/badge/React-18.3-61DAFB.svg?style=for-the-badge&logo=react)](https://reactjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.7-3178C6.svg?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
@@ -13,7 +14,7 @@ sidebar_position: 1
 [![MongoDB](https://img.shields.io/badge/MongoDB-47A248.svg?style=for-the-badge&logo=mongodb)](https://www.mongodb.com/)
 [![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg?style=for-the-badge)](https://www.gnu.org/licenses/agpl-3.0)
 
-Modul zur Kostenberechnung für das Nachhaltigkeitsmonitoring der Stadt Zürich (NHMzh). Es ermöglicht das Anwenden von Kostenkennwerten (z.B. aus Excel) auf BIM-Daten.
+Modul zur Kostenberechnung im NHMzh Nachhaltigkeitsmonitoring der Stadt Zürich (NHMzh). Es ermöglicht das Anwenden von Kostenkennwerten (z.B. aus Excel) auf BIM-Daten.
 
 
 ### 🏛️ Architektur und Datenfluss

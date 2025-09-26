@@ -1,10 +1,10 @@
 ---
-title: NHMzh QTO Plugin
-description: Dokumentation des QTO Plugins
+title: NHMzh Mengenermittlung
+sidebar_label: Mengenermittlung
+description: Mengenermittlung im NHMzh Nachhaltigkeitsmonitoring der Stadt Zürich
 sidebar_position: 1
 ---
-# 📊 NHMzh Plugin-QTO: Mengenermittlung (Quantity Take-Off)
-# 📊 NHMzh Plugin-QTO: Mengenermittlung (Quantity Take-Off)
+# 📊 NHMzh Mengenermittlung (QTO)
 
 [![React](https://img.shields.io/badge/React-18.3-61DAFB.svg?style=for-the-badge&logo=react)](https://reactjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.3-3178C6.svg?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
@@ -13,12 +13,12 @@ sidebar_position: 1
 [![Python](https://img.shields.io/badge/Python-3.8-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
 [![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg?style=for-the-badge)](https://www.gnu.org/licenses/agpl-3.0)
 
-Zentrales Modul für die Mengenermittlung (QTO) aus IFC-Modellen im Nachhaltigkeitsmonitoring der Stadt Zürich (NHMzh).
+Zentrales Modul für die Mengenermittlung (QTO) aus IFC-Modellen im NHMzh Nachhaltigkeitsmonitoring der Stadt Zürich.
 
 
 ### 🏛️ Architektur
 
-Das QTO-Plugin besteht aus einem Frontend und einem Backend:
+Die NHMzh Mengenermittlung besteht aus einem Frontend und einem Backend:
 
 - **Frontend**: Eine **React/TypeScript**-Anwendung, gebündelt über Vite. Das UI ermöglicht die Auswahl bereits verarbeiteter Projekte, visualisiert extrahierte Bauteile und bietet Funktionen wie:
   - Die Bearbeitung der ermittelten Mengen.
