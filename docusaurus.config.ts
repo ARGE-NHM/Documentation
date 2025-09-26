@@ -70,7 +70,7 @@ const config: Config = {
         height: 32,
       },
       items: [
-        {to: '/docs/mengen-kosten-lca/qto/intro', label: 'Mengen, Kosten & LCA', position: 'left'},
+        {to: '/docs/mengen-kosten-lca/overview', label: 'Mengen, Kosten & LCA', position: 'left'},
         {to: '/docs/dashboard/overview', label: 'Dashboard', position: 'left'},
         {to: '/docs/infrastructure-team/overview', label: 'Infrastructure & Core', position: 'left'},
         {
