@@ -1,0 +1,27 @@
+{
+  "name": "NHMzh Nachhaltigkeitsmonitoring",
+  "short_name": "NHMzh",
+  "description": "Dokumentation für das Nachhaltigkeitsmonitoring der Stadt Zürich",
+  "start_url": "/Documentation/",
+  "display": "standalone",
+  "theme_color": "#1e3a8a",
+  "background_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/Documentation/img/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/Documentation/img/apple-touch-icon.png", 
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/Documentation/img/safari-pinned-tab.svg",
+      "sizes": "any", 
+      "type": "image/svg+xml"
+    }
+  ]
+}
