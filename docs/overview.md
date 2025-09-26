@@ -16,14 +16,14 @@ Willkommen in der NHMzh-Dokumentation für die Module von Louis Trümpler (LTplu
 
 ## Dokumentation
 
-### [Mengen, Kosten & LCA](./mengen-kosten-lca/overview)
+### [Mengen, Kosten & LCA](mengen-kosten-lca/overview)
 Plugin-Suite für Mengenermittlung, Kostenberechnung und Ökobilanzierung.
 - Entwickelt von Louis Trümpler (LTplus AG)
 - Finanziert durch die Stadt Zürich
 
-### [Dashboard](./dashboard/overview)
+### [Dashboard](dashboard/overview)
 Visualisierung und Aggregation der NHMzh-Ergebnisse.
 
-### [Infrastructure & Core Plugins](./infrastructure-team/overview)
+### [Infrastructure & Core Plugins](infrastructure-team/overview)
 IFC Uploader Plugin, Projekt Manager Plugin, Plugin Manager und Micro-Frontend Shell.
  

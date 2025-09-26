@@ -209,21 +209,21 @@ export default function Home(): ReactNode {
               <FeatureCard
                 title="Mengen, Kosten & LCA"
                 description="Plugin-Suite für Mengenermittlung, Kostenberechnung und Ökobilanzierung aus IFC-Modellen."
-                link="/mengen-kosten-lca/overview"
+                link="/docs/mengen-kosten-lca/overview"
                 icon=""
                 gradient="hsl(244, 94%, 32%)"
               />
               <FeatureCard
                 title="Dashboard"
                 description="Visualisierung und Aggregation der Mengen-, Kosten- und Ökobilanz-Berechnungen für Projektleitende."
-                link="/dashboard/overview"
+                link="/docs/dashboard/overview"
                 icon=""
                 gradient="hsl(54, 100%, 47%)"
               />
               <FeatureCard
                 title="Infrastructure & Core"
                 description="IFC Uploader, Projekt Manager und Plugin Manager für die Systemarchitektur."
-                link="/infrastructure-team/overview"
+                link="/docs/infrastructure-team/overview"
                 icon=""
                 gradient="hsl(205, 100%, 64%)"
               />

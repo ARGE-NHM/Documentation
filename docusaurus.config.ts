@@ -47,7 +47,7 @@ const config: Config = {
         docs: {
           sidebarPath: './sidebars.main.ts',
           editUrl: 'https://github.com/ARGE-NHM/Documentation/edit/main/',
-          routeBasePath: '/',
+          routeBasePath: 'docs',
         },
         theme: {
           customCss: './src/css/custom.css',
@@ -71,9 +71,9 @@ const config: Config = {
       },
       items: [
         {to: '/', label: 'Übersicht', position: 'left'},
-        {to: '/mengen-kosten-lca/overview', label: 'Mengen, Kosten & LCA', position: 'left'},
-        {to: '/dashboard/overview', label: 'Dashboard', position: 'left'},
-        {to: '/infrastructure-team/overview', label: 'Infrastructure & Core', position: 'left'},
+        {to: '/docs/mengen-kosten-lca/overview', label: 'Mengen, Kosten & LCA', position: 'left'},
+        {to: '/docs/dashboard/overview', label: 'Dashboard', position: 'left'},
+        {to: '/docs/infrastructure-team/overview', label: 'Infrastructure & Core', position: 'left'},
         {
           href: 'https://github.com/LTplus-AG',
           label: 'LT+',

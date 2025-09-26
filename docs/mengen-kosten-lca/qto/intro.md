@@ -25,7 +25,7 @@ Das QTO-Plugin besteht aus einem Frontend und einem Backend:
   - Das manuelle Hinzufügen von neuen Elementen (z.B. für nicht-modellierte Bauteile).
   - Den Import und Export von Mengendaten via Excel.
   - Die finale Freigabe der Daten zur Nutzung durch nachgelagerte Module.
-- **Backend**: Eine **Python/FastAPI**-Anwendung, die für die Verarbeitung der IFC-Dateien zuständig ist. Sie nutzt **IfcOpenShell** zum Parsen der Modelle und extrahiert Mengen, Materialien und Eigenschaften gemäss den [IFC-Modellierungsrichtlinien](/ifc-modellierungsrichtlinien).
+- **Backend**: Eine **Python/FastAPI**-Anwendung, die für die Verarbeitung der IFC-Dateien zuständig ist. Sie nutzt **IfcOpenShell** zum Parsen der Modelle und extrahiert Mengen, Materialien und Eigenschaften gemäss den [IFC-Modellierungsrichtlinien](../shared/ifc-guidelines).
 
 ### 🔄 Datenfluss und Integration
 
