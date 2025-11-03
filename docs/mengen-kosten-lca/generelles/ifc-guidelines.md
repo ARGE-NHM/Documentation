@@ -58,7 +58,7 @@ Das NHMzh-System verarbeitet **25 verschiedene IFC-Klassen**. Verwenden Sie auss
 ✅ IfcRampFlight              - Rampen
 ✅ IfcSolarDevice             - Solaranlagen
 ✅ IfcEarthworksCut           - Erdarbeiten (Aushub)
-✅ IfcBearing                 - Lager
+✅ IfcBearing                  - Lager
 ✅ IfcChimney                 - Kamine
 ✅ IfcRailing                 - Geländer
 ✅ IfcReinforcingBar          - Bewehrungsstäbe
@@ -429,3 +429,4 @@ Empfehlung: Detaillierte Codes (z.B. C2.01 statt C2)
 - [ ] Mengenangaben werden korrekt extrahiert
 - [ ] Materialvolumen werden berechnet
 - [ ] eBKP-Zuordnungen funktionieren
+
