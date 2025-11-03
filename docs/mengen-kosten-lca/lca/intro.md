@@ -38,7 +38,7 @@ Das System berechnet drei Umweltindikatoren:
 **Relative Werte:**
 Die Indikatoren werden zusätzlich relativ berechnet (pro m² und Jahr), um verschiedene Projekte vergleichen zu können.
 
-Siehe auch: [Berechnungslogik](../generelles/berechnungslogik#umweltauswirkungen-berechnung-lca)
+Siehe auch: [Berechnungslogik](../generelles/berechnungslogik#3-umweltauswirkungen-berechnung-lca)
 
 ## Workflow
 
@@ -147,7 +147,7 @@ Die Amortisationsdauer wird automatisch basierend auf eBKP-Codes zugeordnet. Die
 
 **Fallback:** Wenn kein passender Code gefunden wird, wird standardmässig 30 Jahre verwendet.
 
-Siehe auch: [Berechnungslogik](../generelles/berechnungslogik#amortisationsberechnung)
+Siehe auch: [Berechnungslogik](../generelles/berechnungslogik#4-amortisationsberechnung)
 
 ### KBOB-Integration
 

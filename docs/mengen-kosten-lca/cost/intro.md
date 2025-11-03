@@ -40,7 +40,7 @@ Das System sucht für jedes Bauteil den passenden Kostenkennwert über den eBKP-
 1. **Exakte Übereinstimmung**: Zuerst wird nach einer exakten Übereinstimmung gesucht (z.B. `C2.01`)
 2. **Hierarchische Zuordnung**: Falls keine exakte Übereinstimmung gefunden wird, wird die Hierarchie nach oben durchsucht (z.B. `C2.01` → `C2` → `C`)
 
-Siehe auch: [Berechnungslogik](../generelles/berechnungslogik#kostenberechnung)
+Siehe auch: [Berechnungslogik](../generelles/berechnungslogik#2-kostenberechnung)
 
 ## Workflow
 

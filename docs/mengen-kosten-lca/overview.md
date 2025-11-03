@@ -43,7 +43,7 @@ IFC-Modell → Kafka → Plugin-QTO (MongoDB) → Plugin-Cost (direkte DB-Abfrag
 Das NHMzh-System basiert auf **direkten MongoDB-Datenbankabfragen** zwischen den Modulen:
 
 - **Interne Kommunikation**: Direkte Datenbankabfragen zwischen Plugin-QTO, Plugin-Cost und Plugin-LCA
-- **Externe Kommunikation**: Für die Anbindung an IFC Upload (bereitgestellt durch [Infrastructure & Core Team](../../infrastructure-team/overview)) sowie die Übertragung von Endergebnissen an externe Dashboards wird Kafka verwendet
+- **Externe Kommunikation**: Für die Anbindung an IFC Upload (bereitgestellt durch [Infrastructure & Core Team](../infrastructure-team/overview)) sowie die Übertragung von Endergebnissen an externe Dashboards wird Kafka verwendet
 - **Datenbank**: MongoDB mit separaten Datenbanken für jedes Plugin (`qto`, `cost`, `lca`)
 
 ## Dokumentation

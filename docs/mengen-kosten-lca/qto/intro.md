@@ -79,7 +79,7 @@ Das System berechnet automatisch Materialvolumen aus Gesamtvolumen und Materiala
 2. **Fraction-Werte**: Explizite Anteile aus IFC
 3. **Gleichverteilung**: Fallback bei fehlenden Angaben
 
-Siehe auch: [Berechnungslogik](../generelles/berechnungslogik#materialvolumen-berechnung-qto)
+Siehe auch: [Berechnungslogik](../generelles/berechnungslogik#1-materialvolumen-berechnung-qto)
 
 ### eBKP-Klassifizierung
 
