@@ -38,7 +38,7 @@ Das System berechnet drei Umweltindikatoren:
 **Relative Werte:**
 Die Indikatoren werden zusätzlich relativ berechnet (pro m² und Jahr), um verschiedene Projekte vergleichen zu können.
 
-Siehe auch: [Berechnungslogik](../../generelles/berechnungslogik#umweltauswirkungen-berechnung-lca)
+Siehe auch: [Berechnungslogik](../generelles/berechnungslogik#umweltauswirkungen-berechnung-lca)
 
 ## Workflow
 
@@ -132,7 +132,7 @@ Umweltauswirkung = Materialvolumen (m³) × Dichte (kg/m³) × KBOB Ökoindikato
 Relative Umweltauswirkung = Absolute Umweltauswirkung / (Amortisationsdauer × Energiebezugsfläche)
 ```
 
-Siehe auch: [Berechnungslogik](../../generelles/berechnungslogik#relative-umweltauswirkungen)
+Siehe auch: [Berechnungslogik](../generelles/berechnungslogik#relative-umweltauswirkungen)
 
 ### Amortisationslogik
 
@@ -147,7 +147,7 @@ Die Amortisationsdauer wird automatisch basierend auf eBKP-Codes zugeordnet. Die
 
 **Fallback:** Wenn kein passender Code gefunden wird, wird standardmässig 30 Jahre verwendet.
 
-Siehe auch: [Berechnungslogik](../../generelles/berechnungslogik#amortisationsberechnung)
+Siehe auch: [Berechnungslogik](../generelles/berechnungslogik#amortisationsberechnung)
 
 ### KBOB-Integration
 
@@ -773,7 +773,7 @@ Für bessere automatische Zuordnungen:
 
 1. Verbessere Fuzzy-Matching-Algorithmus
 2. Erweitere Synonyme-Datenbank
-3. Nutze maschinelles Lernen für Zuordnungen
+3. ML für Zuordnungen
 
 </details>
 

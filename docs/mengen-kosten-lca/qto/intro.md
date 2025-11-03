@@ -31,7 +31,7 @@ IFC-Dateien werden über den **IFC Uploader Plugin** (entwickelt von Infrastruct
 3. **Verarbeitung**: QTO-Backend parst das IFC-Modell automatisch
 4. **Speicherung**: Daten werden in der `qto`-Datenbank gespeichert
 
-**Hinweis:** Der IFC-Upload wird durch das [Infrastructure & Core Team](../infrastructure-team/overview) bereitgestellt (IFC Uploader Plugin). Das QTO-Plugin verarbeitet die hochgeladenen Dateien automatisch.
+**Hinweis:** Der IFC-Upload wird durch das [Infrastructure & Core Team](../../infrastructure-team/overview) bereitgestellt (IFC Uploader Plugin). Das QTO-Plugin verarbeitet die hochgeladenen Dateien automatisch.
 
 ### 2. Projektauswahl
 
@@ -79,7 +79,7 @@ Das System berechnet automatisch Materialvolumen aus Gesamtvolumen und Materiala
 2. **Fraction-Werte**: Explizite Anteile aus IFC
 3. **Gleichverteilung**: Fallback bei fehlenden Angaben
 
-Siehe auch: [Berechnungslogik](../../generelles/berechnungslogik#materialvolumen-berechnung-qto)
+Siehe auch: [Berechnungslogik](../generelles/berechnungslogik#materialvolumen-berechnung-qto)
 
 ### eBKP-Klassifizierung
 
@@ -207,7 +207,7 @@ Für optimale Ergebnisse sollten IFC-Modelle folgende Anforderungen erfüllen:
 - Detaillierte Materialmodellierung (Schichtaufbauten)
 - Korrekte eBKP-Klassifizierung
 
-Siehe: [IFC-Modellierungsrichtlinien](../../generelles/ifc-guidelines)
+Siehe: [IFC-Modellierungsrichtlinien](../generelles/ifc-guidelines)
 
 ### Datenbearbeitung
 
@@ -270,7 +270,7 @@ Die NHMzh Mengenermittlung besteht aus einem Frontend und einem Backend:
 
 ### IFC-Verarbeitungs-Pipeline
 
-1. **Upload**: IFC-Datei wird über das [IFC Uploader Plugin](../infrastructure-team/overview) hochgeladen (bereitgestellt von Infrastructure & Core Team)
+1. **Upload**: IFC-Datei wird über das [IFC Uploader Plugin](../../infrastructure-team/overview) hochgeladen (bereitgestellt von Infrastructure & Core Team)
 2. **Trigger**: Kafka-Nachricht über neue IFC-Datei in MinIO
 3. **Download**: `qto_ifc-msg`-Service holt Datei aus MinIO
 4. **Upload**: Weiterleitung an `/upload-ifc/`-Endpunkt
@@ -529,7 +529,7 @@ Um neue IFC-Klassen zu unterstützen:
 1. Erweitere `ifc_processing_service.py`
 2. Implementiere spezifische Extraktionslogik
 3. Füge Tests hinzu
-4. Dokumentiere in [IFC-Modellierungsrichtlinien](../../generelles/ifc-guidelines)
+4. Dokumentiere in [IFC-Modellierungsrichtlinien](../generelles/ifc-guidelines)
 
 ### Datenbank-Migrationen
 

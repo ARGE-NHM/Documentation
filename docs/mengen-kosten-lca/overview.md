@@ -43,7 +43,7 @@ IFC-Modell → Kafka → Plugin-QTO (MongoDB) → Plugin-Cost (direkte DB-Abfrag
 Das NHMzh-System basiert auf **direkten MongoDB-Datenbankabfragen** zwischen den Modulen:
 
 - **Interne Kommunikation**: Direkte Datenbankabfragen zwischen Plugin-QTO, Plugin-Cost und Plugin-LCA
-- **Externe Kommunikation**: Für die Anbindung an IFC Upload (bereitgestellt durch [Infrastructure & Core Team](../infrastructure-team/overview)) sowie die Übertragung von Endergebnissen an externe Dashboards wird Kafka verwendet
+- **Externe Kommunikation**: Für die Anbindung an IFC Upload (bereitgestellt durch [Infrastructure & Core Team](../../infrastructure-team/overview)) sowie die Übertragung von Endergebnissen an externe Dashboards wird Kafka verwendet
 - **Datenbank**: MongoDB mit separaten Datenbanken für jedes Plugin (`qto`, `cost`, `lca`)
 
 ## Dokumentation
@@ -52,8 +52,8 @@ Das NHMzh-System basiert auf **direkten MongoDB-Datenbankabfragen** zwischen den
 
 Als Anwender werden in dieser Dokumentation Personen verstanden, die die Plugins verwenden, um Projekte zu verarbeiten, Daten zu bearbeiten und Ergebnisse zu interpretieren.
 
-- **[IFC-Modellierungsrichtlinien](../generelles/ifc-guidelines)** - Leitfaden zur optimalen IFC-Erstellung
-- **[Berechnungslogik](../generelles/berechnungslogik)** - Wie Mengen, Kosten und Umweltauswirkungen berechnet werden
+- **[IFC-Modellierungsrichtlinien](./generelles/ifc-guidelines)** - Leitfaden zur optimalen IFC-Erstellung
+- **[Berechnungslogik](./generelles/berechnungslogik)** - Wie Mengen, Kosten und Umweltauswirkungen berechnet werden
 - **[Mengenermittlung](./qto/intro)** - Arbeiten mit dem QTO-Plugin (inkl. Entwickler-Details)
 - **[Kostenberechnung](./cost/intro)** - Kostenkennwerte verwalten und Kosten berechnen (inkl. Entwickler-Details)
 - **[Ökobilanzierung](./lca/intro)** - Material-Mapping und LCA-Ergebnisse verstehen (inkl. Entwickler-Details)
