@@ -1,7 +1,9 @@
 ---
-title: Micro-Frontend Homepage
+title: Startseite
 description: Architektur, Authentifizierung und Funktionsumfang der zentralen NHMzh Startseite
-sidebar_position: 11
+sidebar_position: 2
+slug: /infrastructure-team/homepage
+tags: [homepage, navigation, roles]
 ---
 
 # NHMzh Homepage Plugin
@@ -23,6 +25,10 @@ sidebar_position: 11
 
 ## Schnelleinstieg
 
+:::tip Nutzung
+Nach dem Login zeigt die Homepage sofort alle für dich freigeschalteten Prozess-Schritte. Ausgegraute Plugins = (noch) keine Lizenz.
+:::
+
 1. Anmelden über Keycloak (automatisch beim ersten Seitenaufruf)
 2. Relevante Rolle über Tabs sichtbar (Ihre Gruppen sind hervorgehoben)
 3. Plugin aus Prozessliste anklicken → Weiterarbeiten im gewählten Modul
@@ -37,6 +43,10 @@ sidebar_position: 11
 | Plugin nicht aktiv | Ausgegraut, keine Navigation                               |
 
 Die Plugin-Liste basiert auf dem Matching zwischen Gruppen-Rollen und Plugin-Namen. Nur Plugins, deren interne Kennung in Ihrer Gruppe hinterlegt ist, werden aktiv verlinkt.
+
+:::info Keycloak Rollen & Lizenzen
+Details zur Verwaltung von Gruppen, Rollen und pluginbezogenen Lizenzen findest du in der [Keycloak Dokumentation](keycloak).
+:::
 
 ## Prozessdarstellung
 
@@ -67,14 +77,11 @@ Beispiel:
 - Nicht sichtbare Plugins: Entweder keine Berechtigung oder Plugin inaktiv
 - Beschreibungstexte bieten Kontext – technische Details liegen in jeweiligen Plugin-Dokus
 
-## Nächste Schritte von hier
-
-- IFC Modell hochladen im [IFC Uploader](./ifc-uploader.md)
-- Daten prüfen im [QTO Plugin](../mengen-kosten-lca/qto/intro)
-- Kosten zuordnen im [Cost Plugin](../mengen-kosten-lca/cost/intro)
-- Umweltauswirkungen analysieren im [LCA Plugin](../mengen-kosten-lca/lca/intro)
-
 ## Häufige Fragen (FAQ)
+
+:::info
+FAQ hilft bei typischen Verständnisfragen zur Sichtbarkeit. Bei technischen Fehlern → Entwickler Abschnitt.
+:::
 
 **Warum sehe ich nur wenige Tabs?** – Ihre Keycloak-Gruppen definieren die sichtbaren Rollen. Weitere Rollen müssen administrativ zugeordnet werden.
 
@@ -84,12 +91,16 @@ Beispiel:
 
 **Warum fehlt ein neues Plugin?** – Plugin muss der passenden Gruppe als Rolle hinzugefügt werden.
 
-## Für Entwickler (Kurz)
+## Für Entwickler
+
+:::note
+Technische Details zur Datenquelle & Matching Logik.
+:::
 
 <details>
 <summary>Technische Übersicht</summary>
 
-### Architektur (Kurz)
+### Architektur
 
 ```
 Client (React + Module Federation) → Homepage API (.NET) → Keycloak Admin API
@@ -99,12 +110,6 @@ Client (React + Module Federation) → Homepage API (.NET) → Keycloak Admin AP
 
 - `GroupsService.getGroups()` → Aggregiert Gruppen & deren Rollen
 - `PluginsService.getAllPlugin()` → Liefert Plugin Metadaten (Name, Icon, Route)
-
-### Matching Logik (vereinfacht)
-
-```typescript
-const matching = plugins.filter((p) => group.realmRoles.includes(p.pluginName));
-```
 
 ### Auth Flow
 
@@ -124,12 +129,6 @@ const matching = plugins.filter((p) => group.realmRoles.includes(p.pluginName));
 exposes: { "./App": "./src/App.tsx" }
 ```
 
-### Verbesserungs-Potenzial
-
-- Caching von Gruppen & Plugins
-- Lazy Loading großer Plugin-Icons
-- i18n für Texte
-
 ### Lokales Setup
 
 ```bash
@@ -141,28 +140,3 @@ dotnet run --project Service/API.csproj
 ```
 
 </details>
-
-## Glossar
-
-| Begriff           | Erklärung                                                     |
-| ----------------- | ------------------------------------------------------------- |
-| Rolle / Gruppe    | Keycloak Gruppenzuordnung zur Steuerung der Sichtbarkeit      |
-| Plugin            | Fachmodul im NHMzh System                                     |
-| Module Federation | Technischer Mechanismus zum Laden entkoppelter Microfrontends |
-| Claim             | Bestandteil eines JWT Tokens (enthält z.B. Gruppen)           |
-
-## Kurzes Troubleshooting
-
-| Problem              | Ursache                               | Lösung                         |
-| -------------------- | ------------------------------------- | ------------------------------ |
-| Keine Gruppen        | Token fehlt / abgelaufen              | Neu anmelden / Seite neu laden |
-| Plugins leer         | Backend / Plugin API nicht erreichbar | Netzwerk & Console prüfen      |
-| Falsche Sichtbarkeit | Rollen in Keycloak nicht korrekt      | Admin Kontakt aufnehmen        |
-| 401 Fehler           | Ungültiges oder abgelaufenes Token    | Refresh durch Login            |
-
-## Roadmap (Auszug)
-
-- Performanceoptimierung beim Laden vieler Plugins
-- Erklärungs-Tooltips für jede Rolle
-- Erweiterte Suche / Filter für Plugins
-- Audit-Log: Wer öffnet welches Plugin?

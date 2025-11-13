@@ -1,57 +1,72 @@
 ---
-title: NHMzh Infrastructure & Core Übersicht
-description: Infrastrukturmodule im NHMzh Nachhaltigkeitsmonitoring
+title: Übersicht
+description: Übersicht über Basis-Plugins & Dienste (Upload, Projekte, Verwaltung, Auth)
 sidebar_position: 1
+slug: /infrastructure-team/overview
+tags: [infrastructure, overview]
 ---
 
-# NHMzh Infrastructure & Core Übersicht
+# Infrastructure & Core
 
-_Dokumentation folgt - wird von ekkodale bereitgestellt._
+Die Infrastruktur bildet das technische Fundament für alle Fach-Plugins (Mengen, Kosten, LCA, Dashboard). Sie stellt Upload, Projektkontext, Plugin-Lifecycle und Authentifizierung bereit.
 
-## Core Infrastructure
+## Kernmodule
 
-### Startseite
+| Modul                        | Zweck (Kurz)                                                   |
+| ---------------------------- | -------------------------------------------------------------- |
+| Homepage                     | Einstiegsseite & rollenbasierter Prozessüberblick              |
+| IFC Uploader                 | IDS-Prüfung & Freigabe von IFC Dateien + Event                 |
+| Project Manager              | Projektdaten & Team-Zuordnung als gemeinsamer Kontext          |
+| Plugin Host                  | Listet & liefert Bundles, Token-Exchange, Gruppenverwaltung    |
+| Plugin Manager               | Upload & Versionierung der Microfrontends, Reihenfolge         |
+| Keycloak                     | Benutzer, Gruppen (Homepage Ordnung), Rollen = Plugin-Lizenzen |
+| Micro-Frontend Shell (folgt) | Federation Mount & gemeinsame UI                               |
 
-Zentrale Startseite des NHMzh-Systems.
+## Ziel & Nutzen
 
-### IFC Uploader Plugin
+- Einheitlicher Projektkontext für alle Auswertungen
+- Modularer Ausbau durch klare Plugin-Schnittstellen
+- Sichere Authentifizierung & Lizenzprüfung via Keycloak Rollen
+- Schnelles Deployment neuer UI-Versionen (Plugin Manager + Host)
 
-Upload und Validierung von IFC-Dateien in das NHMzh-System.
+## Schnelleinstieg (Benutzer)
 
-### Projekt Manager Plugin
+1. Keycloak Login (Gruppe + Rollen vorhanden)
+2. Homepage zeigt freigeschaltete Prozess-Schritte
+3. Projekt im Project Manager anlegen / auswählen
+4. IFC Datei hochladen & freigeben (IFC Uploader)
+5. Weiterarbeiten in Fach-Plugins (QTO, Kosten, LCA, Dashboard)
 
-Verwaltung von Projekten und Benutzerberechtigungen.
+## Rollen & Gruppen (Kurz)
 
-### Plugin Manager
+| Element                            | Bedeutung                                       |
+| ---------------------------------- | ----------------------------------------------- |
+| Realm-Rolle (z.B. `ifc-uploader`)  | Lizenz zur Plugin-Sichtbarkeit                  |
+| Gruppe (z.B. `Fachplanung Kosten`) | Bündelt Rollen + Homepage Ordnung (`order`)     |
+| Gruppe `/Admin`                    | Administratives: Upload, Reorder, Gruppenpflege |
 
-Orchestrierung und Integration der verschiedenen NHMzh-Module.
+## Verweise
 
-## Micro-Frontend Shell
+- [IFC Uploader](./ifc-uploader.md)
+- [Homepage](./homepage.md)
+- [Project Manager](./project-manager.md)
+- [Plugin Host](./plugin-host.md)
+- [Plugin Manager](./plugin-manager.md)
+- [Plugin Entwicklung](./plugin-development.md)
+- [Keycloak Kurzreferenz](./keycloak.md)
 
-Zentrale Anwendungsschale für die Integration aller Plugins.
+## FAQ (Kurz)
 
-## Keycloak
+**Warum sehe ich ein Plugin nicht?** Rolle (Realm-Rolle) fehlt in einer zugeordneten Gruppe.
 
-Zentrale Identity & Access Management Plattform (Realm, Clients, Rollen, Gruppen). Integration über PluginHost.
+**Wozu das `order` Attribut?** Steuert Reihenfolge von Gruppen auf der Homepage.
 
-## Infrastruktur-Komponenten (Detailseiten)
+**Wie lade ich ein neues Plugin?** Bundle bauen → Plugin Manager Wizard nutzen → Lizenz-Rolle in Keycloak hinzufügen.
 
-- [IFC Uploader](./ifc-uploader.md) – Validierung & Veröffentlichung von IFC Dateien
-- [Homepage](./homepage.md) – Einstieg & Rollenbasierte Prozessnavigation
-- [Project Manager](./project-manager.md) – Projekte, Mitglieder & Berechtigungen
-- [Plugin Manager](./plugin-manager.md) – Admin UI für Upload, Versionen & Gruppen
-- Micro-Frontend Shell (folgt) – Plugin Integration & Routing
-- [Keycloak](./keycloak.md) – Benutzer, Rollen (Licenses), Gruppen & Token-Exchange
+**Benötige ich direkte Rollen am Benutzer?** Normalerweise nicht – Gruppenmitgliedschaft genügt.
 
-## Für Entwickler
+## Changelog
 
-Architektur, Konfiguration & Betriebsaspekte werden schrittweise ergänzt:
-
-1. Datenflüsse (Upload → Verarbeitung → Visualisierung)
-2. Messaging & Storage (Kafka, MinIO, Datenbanken)
-3. CI/CD & Deployment (Stacks, Image Tags)
-4. Sicherheit (Keycloak, API Keys, WebSocket Hardening)
-
-## Nächste Schritte
-
-Diese Seite wird erweitert sobald weitere Module dokumentiert sind (Stand: IFC Uploader verfügbar).
+| Datum      | Änderung                                                           |
+| ---------- | ------------------------------------------------------------------ |
+| 2025-11-13 | Seite komplett überarbeitet (kompakte Übersicht & vereinheitlicht) |

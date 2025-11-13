@@ -1,7 +1,9 @@
 ---
 title: IFC Uploader
 description: Architektur, Ablauf und Betrieb des IFC Uploaders im NHMzh Core
-sidebar_position: 10
+sidebar_position: 4
+slug: /infrastructure-team/ifc-uploader
+tags: [ifc, upload, validation, infrastructure]
 ---
 
 # IFC Uploader Plugin
@@ -24,13 +26,11 @@ sidebar_position: 10
 - Ermöglicht Veröffentlichung (Freigabe) erfolgreicher Dateien
 - Sendet Ereignis an die Verarbeitungspipeline (Kafka)
 
-## Einsatz im Gesamtworkflow
+## Schnelleinstieg
 
-```
-IFC Modell → Upload & IDS Prüfung → Freigabe → Kafka Event → QTO Plugin → Cost Plugin → LCA Plugin → Dashboard
-```
-
-## Schnelleinstieg (Anwender)
+:::tip Schnellstart
+Die wichtigsten Schritte zum erfolgreichen Upload sind unten kompakt dargestellt. Bei Validierungsfehlern zuerst den HTML Report prüfen – er ist detaillierter als BCF.
+:::
 
 1. Projekt auswählen (Dropdown)
 2. IFC-Datei in Dropzone ziehen oder wählen
@@ -64,39 +64,15 @@ Der Fortschritt wird live per WebSocket angezeigt:
 
 Siehe auch: [IFC-Modellierungsrichtlinien](../mengen-kosten-lca/generelles/ifc-guidelines) für optimale Vorbereitung.
 
-## Systemkomponenten (Übersicht)
+## Weiterführende Nutzung
 
-| Komponente      | Zweck                                                          |
-| --------------- | -------------------------------------------------------------- |
-| Upload UI       | Dateiannahme & Statusanzeige                                   |
-| FastAPI Service | Validierung, MinIO & Kafka Integration                         |
-| MinIO Buckets   | Temporäre & permanente Ablage, Reports, IDS                    |
-| Kafka Event     | Signal an Verarbeitungskette (Thema: IFC-Datei veröffentlicht) |
-| Postgres        | Projekt-Stammdaten                                             |
+Nach Freigabe kann das Modell unmittelbar in den Fach-Plugins (QTO, Kosten, LCA, Dashboard) verarbeitet werden.
 
-## Buckets
+## Für Entwickler
 
-| Bucket         | Beschreibung                  |
-| -------------- | ----------------------------- |
-| `ifc-temp`     | Zwischenspeicher bis Freigabe |
-| `ifc-files`    | Freigegebene Modelle          |
-| `ids-files`    | IDS Spezifikationen           |
-| `report-files` | HTML / BCF Reports            |
-
-## Nutzungstipps
-
-- Nur ein IFC pro Upload verwenden für klare Reports
-- Versionsnummer im Originaldateinamen verwenden (z.B. `ProjektA_v03.ifc`)
-- Bei umfangreichen Modellen zuerst Testausschnitt prüfen
-- Reports archivieren bei kritischen Projekten (HTML lokal speichern)
-
-## Nächste Schritte nach Freigabe
-
-- Weiterarbeiten im [Mengenermittlung (QTO)](../mengen-kosten-lca/qto/intro)
-- Kosten berechnen im [Kosten-Plugin](../mengen-kosten-lca/cost/intro)
-- Ökobilanz starten im [LCA-Plugin](../mengen-kosten-lca/lca/intro)
-
-## Für Entwickler (Kurz)
+:::note
+Dieser Abschnitt ist nur für Entwickler relevant – Anwender können ihn ausklappen, müssen aber nichts davon kennen.
+:::
 
 <details>
 <summary>Technische Übersicht</summary>
@@ -144,6 +120,25 @@ Client → /upload → MinIO (temp) → IDS Prüfung → Reports → /publish �
 | `name`         | Anzeigename              |
 | `phase_id`     | Optionaler Projektstatus |
 | `power_bi_url` | Verlinktes Dashboard     |
+
+### Systemkomponenten (Übersicht)
+
+| Komponente      | Zweck                                                          |
+| --------------- | -------------------------------------------------------------- |
+| Upload UI       | Dateiannahme & Statusanzeige                                   |
+| FastAPI Service | Validierung, MinIO & Kafka Integration                         |
+| MinIO Buckets   | Temporäre & permanente Ablage, Reports, IDS                    |
+| Kafka Event     | Signal an Verarbeitungskette (Thema: IFC-Datei veröffentlicht) |
+| Postgres        | Projekt-Stammdaten                                             |
+
+### Buckets
+
+| Bucket         | Beschreibung                  |
+| -------------- | ----------------------------- |
+| `ifc-temp`     | Zwischenspeicher bis Freigabe |
+| `ifc-files`    | Freigegebene Modelle          |
+| `ids-files`    | IDS Spezifikationen           |
+| `report-files` | HTML / BCF Reports            |
 
 ### Topics
 

@@ -1,7 +1,9 @@
 ---
-title: Project Manager Plugin
+title: Project Manager
 description: Verwaltung von Projekten, Phasen und Teamzuordnungen im NHMzh System
-sidebar_position: 12
+sidebar_position: 3
+slug: /infrastructure-team/project-manager
+tags: [projects, teams, management]
 ---
 
 # NHMzh Project Manager Plugin
@@ -23,15 +25,7 @@ sidebar_position: 12
 - Abfrage und Anzeige von Keycloak Benutzergruppen
 - Aktualisierung von Projektdetails und Phase
 
-## Einsatz im Gesamtworkflow
-
-```
-Projekt anlegen → IFC Modelle & Daten verarbeiten → Fachmodule nutzen (QTO / Kosten / LCA) → Ergebnisse im Dashboard visualisieren
-```
-
-Alle Datenflüsse referenzieren das Projekt (Id / Code) für Kontext & Berechtigungen.
-
-## Schnelleinstieg (Anwender)
+## Schnelleinstieg
 
 1. "Projekt erstellen" öffnen
 2. ERZ Projektcode & Namen erfassen, Phase wählen
@@ -39,46 +33,51 @@ Alle Datenflüsse referenzieren das Projekt (Id / Code) für Kontext & Berechtig
 4. Speichern – Projekt erscheint in der Liste (abhängig von Berechtigung)
 5. Bei Fortschritt Phase anpassen oder Mitglieder ändern
 
-## Daten & Konzepte
+## Berechtigungen
 
-| Begriff           | Bedeutung                                      |
-| ----------------- | ---------------------------------------------- |
-| Projekt           | Container für alle Auswertungen und Ergebnisse |
-| ERZ Projektcode   | Externer eindeutiger Organisationscode         |
-| Phase             | Lebenszyklusstatus (Enum)                      |
-| ServiceDepartment | Zuständige Abteilung (Enum)                    |
-| Assignment        | Zuordnung Benutzer ↔ Projekt mit Rolle         |
+- Admin sieht und verwaltet alle Projekte
+- Standardbenutzer nur eigene Projekte
+- Rollenfeld `Role` innerhalb eines Projekts ist nicht system-validiert (rein textuell)
+- Projektphasen sind als hart codiertes Enum im Code hinterlegt (Erweiterung nur durch Entwickleränderung)
 
-### Projektfelder
+:::info Keycloak Bezug
+Ausführliche Informationen zu Usern und Gruppen (Rollen) findest du in der [Keycloak Dokumentation](./keycloak).
+:::
 
-| Feld                 | Typ        | Beschreibung                |
-| -------------------- | ---------- | --------------------------- |
-| `Id`                 | Guid       | Interne eindeutige Kennung  |
-| `ErzProjectCode`     | string     | Externer Projektidentifier  |
-| `Name`               | string     | Anzeigename                 |
-| `Phase`              | Enum       | Projektphase                |
-| `ServiceDepartment`  | Enum       | Fachabteilung               |
-| `LastModified`       | DateTime   | Zeitstempel letzte Änderung |
-| `ProjectAssignments` | Collection | Teamzuordnungen             |
+## Datenfluss Einbindung
 
-### Assignment Felder
+Andere Plugins lesen Projektstammdaten (Id / Code / Phase) für Filter & Anzeige; das Plugin berechnet keine fachlichen Kennzahlen.
 
-| Feld        | Typ    | Beschreibung                  |
-| ----------- | ------ | ----------------------------- |
-| `Id`        | int    | Interne Kennung               |
-| `ProjectId` | Guid   | Referenz auf Projekt          |
-| `UserId`    | Guid   | Benutzer (Keycloak)           |
-| `Role`      | string | Projektrolle (frei definiert) |
+## Für Entwickler
 
-## Frontend Funktionen (Ist)
+:::note
+Technische Informationen – für Anwender nicht erforderlich.
+:::
 
-- Projektliste (Admin: alle / Benutzer: nur zugewiesene)
-- Detailansicht & Bearbeiten
-- Mitglieder hinzufügen / löschen / Rolle ändern
-- Phase aktualisieren
-- Benutzer & Gruppen aus Keycloak anzeigen
+<details>
+<summary>Technische Übersicht</summary>
 
-## API Endpunkte (v1)
+### Datenmodell
+
+| Feld                 | Typ      | Beschreibung               |
+| -------------------- | -------- | -------------------------- |
+| Id                   | Guid     | Interne Kennung            |
+| ErzProjectCode       | string   | Externer Projektidentifier |
+| Name                 | string   | Anzeigename                |
+| Phase                | Enum     | Projektphase               |
+| ServiceDepartment    | Enum     | Fachabteilung              |
+| LastModified         | DateTime | Änderungstimestamp         |
+| ProjectAssignments[] | Liste    | Benutzer/Rollen Zuordnung  |
+
+Assignment:
+| Feld | Typ | Beschreibung |
+|----------|------|-------------------------------|
+| Id | int | Interne Kennung |
+| ProjectId| Guid | Referenz auf Projekt |
+| UserId | Guid | Benutzer (Keycloak) |
+| Role | string | Textuelle Projektrolle |
+
+### API Endpunkte (v1)
 
 | Methode | Pfad                             | Beschreibung                |
 | ------- | -------------------------------- | --------------------------- |
@@ -92,128 +91,39 @@ Alle Datenflüsse referenzieren das Projekt (Id / Code) für Kontext & Berechtig
 | GET     | `/api/v1/Users/groups`           | Gruppen / Rollen            |
 | POST    | `/api/v1/Users/{id}/groups`      | Benutzer zu Gruppe zuordnen |
 
-## Kafka Topic
+### Kafka Event
 
-Das Plugin veröffentlicht Änderungen an Projekten als Events auf einem Kafka Topic.
+Topic: `ekkodale.projekt.projektmanager.public`
 
-| Topic                                    | Zweck                                                                  | EventName Werte (Header)        | Payload Felder                                                                                  |
-| ---------------------------------------- | ---------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------- |
-| `ekkodale.projekt.projektmanager.public` | Veröffentlichung von Projekt-Stammdaten bei Erstellen, Ändern, Löschen | `created`, `updated`, `deleted` | `ProjectId`, (bei created/updated zusätzlich: `ErzProjectCode`, `Name`, `PhaseId`, `Members[]`) |
+Header:
+| Key | Wert |
+|-----------|---------------------|
+| UseCase | None |
+| UserGroup | None |
+| Entity | Project |
+| Version | v1 |
+| EventName | created/updated/deleted |
 
-### Header (aktuell)
-
-| Header      | Wert                              |
-| ----------- | --------------------------------- |
-| `UseCase`   | `None`                            |
-| `UserGroup` | `None`                            |
-| `Entity`    | `Project`                         |
-| `Version`   | `v1`                              |
-| `EventName` | `created` / `updated` / `deleted` |
-
-### Payload Struktur (created / updated)
+Payload Beispiele:
+Created/Updated:
 
 ```json
 {
   "ProjectId": "<guid>",
   "ErzProjectCode": "<string>",
   "Name": "<string>",
-  "PhaseId": "<enum string>",
+  "PhaseId": "<enum>",
   "Members": [{ "MemberId": "<guid>", "Roles": ["RoleA", "RoleB"] }]
 }
 ```
 
-### Payload Struktur (deleted)
+Deleted:
 
 ```json
 { "ProjectId": "<guid>" }
 ```
 
-Hinweis: `Members` gruppiert Rollen pro Benutzer. Bei Löschung werden keine weiteren Metadaten gesendet.
-
-## Berechtigungen
-
-- Keycloak Token erforderlich (JWT)
-- Admin sieht und verwaltet alle Projekte
-- Standardbenutzer nur eigene Projekte
-- Rollenfeld `Role` innerhalb eines Projekts ist nicht system-validiert (rein textuell)
-
-## Häufige Fehler & Hinweise
-
-| Problem                | Ursache                             | Lösung                             |
-| ---------------------- | ----------------------------------- | ---------------------------------- |
-| Projekt nicht sichtbar | Keine Zuordnung / keine Admin-Rolle | Rolle prüfen / Zuordnung erstellen |
-| Benutzerliste leer     | Keycloak nicht erreichbar           | Verbindung / Token prüfen          |
-| Update schlägt fehl    | Ungültige Id                        | Korrekte Projekt-Id verwenden      |
-| Gruppenabruf Fehler    | Token abgelaufen                    | Neu anmelden                       |
-
-## Nutzungstipps
-
-- Eindeutige, sprechende Projektcodes verwenden
-- Rollen konsistent benennen (z.B. "Planung", "Controlling")
-- Phase zeitnah aktualisieren für nachgelagerte Berichte
-- Teamänderungen sofort speichern für korrekte Berechtigungsfilter
-
-## Datenfluss Einbindung
-
-Andere Module lesen Projektstammdaten (Id/Code/Phase) zur Filterung und Anzeige; selbst erzeugt das Plugin keine fachlichen Berechnungen.
-
-## Grenzen (Ist-Zustand)
-
-- Rollen frei textuell (keine vordefinierte Liste)
-- Phasen fest im Enum hinterlegt
-- Entfernte Mitglieder werden gelöscht (keine Historisierung)
-
-## Für Entwickler (Kurz)
-
-<details>
-<summary>Technische Übersicht</summary>
-
-### Architektur
-
-```
-React Frontend → ASP.NET Core API → PostgreSQL (EF Core) → Keycloak Admin API
-```
-
-### CQRS / Mediator
-
-MassTransit Mediator: Handler für Create, Update, Delete, GetById, GetProjects, GetProjectPhases, GetUsers, GetUserRoles, AddUserToGroup (Timeout 30s).
-
-### Persistenz / Migration
-
-EF Core + Npgsql; Migrationen automatisch angewendet beim Start (`Database.MigrateAsync()`).
-
-### Entities (Auszug)
-
-```csharp
-public class ProjectEntity {
-  Guid Id; string ErzProjectCode; string Name; ProjectPhase Phase;
-  ServiceDepartment ServiceDepartment; DateTime LastModified;
-  ICollection<ProjectAssignmentEntity> ProjectAssignments;
-}
-public class ProjectAssignmentEntity {
-  int Id; Guid ProjectId; Guid UserId; string Role; ProjectEntity Project;
-}
-```
-
-### Authentifizierung
-
-JWT Bearer (Keycloak) – Gruppen im `groups` Claim.
-
-### Kafka
-
-`KafkaProducerService` vorhanden (Ist-Zustand ohne dokumentierte fachliche Events).
-
 </details>
-
-## Glossar
-
-| Begriff           | Erklärung                  |
-| ----------------- | -------------------------- |
-| ERZ Projektcode   | Externer Organisationscode |
-| Phase             | Projektlebenszyklus (Enum) |
-| Assignment        | Benutzer/Rolle Zuordnung   |
-| ServiceDepartment | Zuständige Fachabteilung   |
-| Keycloak Gruppe   | Externe Rollenverwaltung   |
 
 ## FAQ
 
