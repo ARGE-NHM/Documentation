@@ -129,16 +129,16 @@ Wizard Schritte (Kurz):
 4. Abschluss: POST Multipart Upload
 5. Optional: Reorder für Gruppen / Reihenfolge
 
-Siehe Admin UI Dokumentation: [Plugin Manager](/infrastructure/plugin-manager)
+Siehe Admin UI Dokumentation: [Plugin Manager](./plugin-manager)
 
 ## Häufige Stolpersteine
 
-| Problem             | Ursache                      | Lösung                            |
-| ------------------- | ---------------------------- | --------------------------------- |
-| Modul nicht erkannt | Falscher Key in exposes      | Key prüfen (`./App`)              |
-| Leere Modul-Liste   | Federation Build Format abw. | Build & `remoteEntry.js` prüfen   |
-| Icon fehlt          | Nicht hochgeladen / falscher | Datei erneut hochladen            |
-| Falsche Route       | Relative Links intern falsch | Absolute Pfade relativ zum Mount  |
+| Problem             | Ursache                      | Lösung                           |
+| ------------------- | ---------------------------- | -------------------------------- |
+| Modul nicht erkannt | Falscher Key in exposes      | Key prüfen (`./App`)             |
+| Leere Modul-Liste   | Federation Build Format abw. | Build & `remoteEntry.js` prüfen  |
+| Icon fehlt          | Nicht hochgeladen / falscher | Datei erneut hochladen           |
+| Falsche Route       | Relative Links intern falsch | Absolute Pfade relativ zum Mount |
 
 ## Keycloak Rollen (Lizenzen)
 
