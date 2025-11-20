@@ -1,5 +1,5 @@
 ---
-title: Plugin Entwicklung
+title: Plugin Entwicklung (Entwickler)
 description: Erstellung, Aufbau, Routing, Federation und Upload eines Microfrontend Plugins für die Plattform
 sidebar_position: 8
 slug: /infrastructure-team/plugin-development

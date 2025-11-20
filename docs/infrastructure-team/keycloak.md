@@ -1,5 +1,5 @@
 ---
-title: Keycloak
+title: Keycloak (Admin)
 description: Minimalreferenz für Benutzer, Gruppen (inkl. Ordnung) und Plugin-Lizenzen (Realm-Rollen) zur Steuerung von Sichtbarkeit
 sidebar_position: 7
 slug: /infrastructure-team/keycloak

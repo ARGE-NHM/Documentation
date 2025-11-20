@@ -46,7 +46,7 @@ const sidebars: SidebarsConfig = {
         "infrastructure-team/ifc-uploader",
         "infrastructure-team/plugin-host",
         "infrastructure-team/plugin-manager",
-		"infrastructure-team/plugin-development",
+		    "infrastructure-team/plugin-development",
         "infrastructure-team/keycloak",
       ],
     },

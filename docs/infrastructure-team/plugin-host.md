@@ -1,5 +1,5 @@
 ---
-title: Plugin Host
+title: Plugin Host (Admin)
 description: Backend-Infrastruktur für Microfrontend Plugins (Listing, Datei-Serving, Token-Exchange, Lizenzprüfung)
 sidebar_position: 5
 slug: /infrastructure-team/plugin-host

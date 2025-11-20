@@ -1,5 +1,5 @@
 ---
-title: Plugin Manager
+title: Plugin Manager (Admin)
 description: Administrationsoberfläche zur Pflege von Microfrontend Plugins (Upload, Versionen, Gruppen, Reihenfolge)
 sidebar_position: 6
 slug: /infrastructure-team/plugin-manager

@@ -17,10 +17,9 @@ Die Infrastruktur bildet das technische Fundament für alle Fach-Plugins (Mengen
 | Homepage                     | Einstiegsseite & rollenbasierter Prozessüberblick              |
 | IFC Uploader                 | IDS-Prüfung & Freigabe von IFC Dateien + Event                 |
 | Project Manager              | Projektdaten & Team-Zuordnung als gemeinsamer Kontext          |
-| Plugin Host                  | Listet & liefert Bundles, Token-Exchange, Gruppenverwaltung    |
-| Plugin Manager               | Upload & Versionierung der Microfrontends, Reihenfolge         |
-| Keycloak                     | Benutzer, Gruppen (Homepage Ordnung), Rollen = Plugin-Lizenzen |
-| Micro-Frontend Shell (folgt) | Federation Mount & gemeinsame UI                               |
+| Plugin Host (Admin)                  | Listet & liefert Bundles, Token-Exchange, Gruppenverwaltung    |
+| Plugin Manager (Admin)               | Upload & Versionierung der Microfrontends, Reihenfolge         |
+| Keycloak (Admin)                     | Benutzer, Gruppen (Homepage Ordnung), Rollen = Plugin-Lizenzen |
 
 ## Ziel & Nutzen
 
@@ -54,19 +53,3 @@ Die Infrastruktur bildet das technische Fundament für alle Fach-Plugins (Mengen
 - [Plugin Manager](./plugin-manager.md)
 - [Plugin Entwicklung](./plugin-development.md)
 - [Keycloak Kurzreferenz](./keycloak.md)
-
-## FAQ (Kurz)
-
-**Warum sehe ich ein Plugin nicht?** Rolle (Realm-Rolle) fehlt in einer zugeordneten Gruppe.
-
-**Wozu das `order` Attribut?** Steuert Reihenfolge von Gruppen auf der Homepage.
-
-**Wie lade ich ein neues Plugin?** Bundle bauen → Plugin Manager Wizard nutzen → Lizenz-Rolle in Keycloak hinzufügen.
-
-**Benötige ich direkte Rollen am Benutzer?** Normalerweise nicht – Gruppenmitgliedschaft genügt.
-
-## Changelog
-
-| Datum      | Änderung                                                           |
-| ---------- | ------------------------------------------------------------------ |
-| 2025-11-13 | Seite komplett überarbeitet (kompakte Übersicht & vereinheitlicht) |
