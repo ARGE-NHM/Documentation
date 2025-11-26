@@ -1,23 +1,55 @@
 ---
-title: NHMzh Infrastructure & Core Übersicht
-description: Infrastrukturmodule im NHMzh Nachhaltigkeitsmonitoring
+title: Übersicht
+description: Übersicht über Basis-Plugins & Dienste (Upload, Projekte, Verwaltung, Auth)
 sidebar_position: 1
+slug: /infrastructure-team/overview
+tags: [infrastructure, overview]
 ---
 
-# NHMzh Infrastructure & Core Übersicht
+# Infrastructure & Core
 
-*Dokumentation folgt - wird von ekkodale bereitgestellt.*
+Die Infrastruktur bildet das technische Fundament für alle Fach-Plugins (Mengen, Kosten, LCA, Dashboard). Sie stellt Upload, Projektkontext, Plugin-Lifecycle und Authentifizierung bereit.
 
-## Core Infrastructure
+## Kernmodule
 
-### IFC Uploader Plugin
-Upload und Validierung von IFC-Dateien in das NHMzh-System.
+| Modul                        | Zweck (Kurz)                                                   |
+| ---------------------------- | -------------------------------------------------------------- |
+| Homepage                     | Einstiegsseite & rollenbasierter Prozessüberblick              |
+| IFC Uploader                 | IDS-Prüfung & Freigabe von IFC Dateien + Event                 |
+| Project Manager              | Projektdaten & Team-Zuordnung als gemeinsamer Kontext          |
+| Plugin Host (Admin)                  | Listet & liefert Bundles, Token-Exchange, Gruppenverwaltung    |
+| Plugin Manager (Admin)               | Upload & Versionierung der Microfrontends, Reihenfolge         |
+| Keycloak (Admin)                     | Benutzer, Gruppen (Homepage Ordnung), Rollen = Plugin-Lizenzen |
 
-### Projekt Manager Plugin
-Verwaltung von Projekten und Benutzerberechtigungen.
+## Ziel & Nutzen
 
-### Plugin Manager
-Orchestrierung und Integration der verschiedenen NHMzh-Module.
+- Einheitlicher Projektkontext für alle Auswertungen
+- Modularer Ausbau durch klare Plugin-Schnittstellen
+- Sichere Authentifizierung & Lizenzprüfung via Keycloak Rollen
+- Schnelles Deployment neuer UI-Versionen (Plugin Manager + Host)
 
-## Micro-Frontend Shell
-Zentrale Anwendungsschale für die Integration aller Plugins.
+## Schnelleinstieg (Benutzer)
+
+1. Keycloak Login (Gruppe + Rollen vorhanden)
+2. Homepage zeigt freigeschaltete Prozess-Schritte
+3. Projekt im Project Manager anlegen / auswählen
+4. IFC Datei hochladen & freigeben (IFC Uploader)
+5. Weiterarbeiten in Fach-Plugins (QTO, Kosten, LCA, Dashboard)
+
+## Rollen & Gruppen (Kurz)
+
+| Element                            | Bedeutung                                       |
+| ---------------------------------- | ----------------------------------------------- |
+| Realm-Rolle (z.B. `ifc-uploader`)  | Lizenz zur Plugin-Sichtbarkeit                  |
+| Gruppe (z.B. `Fachplanung Kosten`) | Bündelt Rollen + Homepage Ordnung (`order`)     |
+| Gruppe `/Admin`                    | Administratives: Upload, Reorder, Gruppenpflege |
+
+## Verweise
+
+- [IFC Uploader](./ifc-uploader.md)
+- [Homepage](./homepage.md)
+- [Project Manager](./project-manager.md)
+- [Plugin Host](./plugin-host.md)
+- [Plugin Manager](./plugin-manager.md)
+- [Plugin Entwicklung](./plugin-development.md)
+- [Keycloak Kurzreferenz](./keycloak.md)
